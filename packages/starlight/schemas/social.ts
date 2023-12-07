@@ -1,32 +1,37 @@
 import { z } from 'astro/zod';
 
+export const socialLinks = [
+	'twitter',
+	'mastodon',
+	'github',
+	'gitlab',
+	'bitbucket',
+	'discord',
+	'gitter',
+	'codeberg',
+	'codePen',
+	'youtube',
+	'threads',
+	'linkedin',
+	'twitch',
+	'microsoftTeams',
+	'instagram',
+	'stackOverflow',
+	'x.com',
+	'telegram',
+	'rss',
+	'facebook',
+	'email',
+	'reddit',
+	'patreon',
+	'slack',
+	'matrix',
+] as const;
+
 export const SocialLinksSchema = () =>
 	z
 		.record(
-			z.enum([
-				'twitter',
-				'mastodon',
-				'github',
-				'gitlab',
-				'bitbucket',
-				'discord',
-				'gitter',
-				'codeberg',
-				'codePen',
-				'youtube',
-				'threads',
-				'linkedin',
-				'twitch',
-				'microsoftTeams',
-				'instagram',
-				'stackOverflow',
-				'x.com',
-				'telegram',
-				'rss',
-				'facebook',
-				'email',
-				'reddit',
-			]),
+			z.enum(socialLinks),
 			// Link to the respective social profile for this site
 			z.string().url()
 		)
@@ -59,6 +64,9 @@ export const SocialLinksSchema = () =>
 					facebook: 'Facebook',
 					email: 'Email',
 					reddit: 'Reddit',
+					patreon: 'Patreon',
+					slack: 'Slack',
+					matrix: 'Matrix',
 				}[key];
 				labelledLinks[key] = { label, url };
 			}

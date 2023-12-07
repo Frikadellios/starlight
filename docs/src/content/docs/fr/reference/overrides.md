@@ -18,6 +18,7 @@ Pour typer vos composants personnalisés, importez le type `Props` depuis Starli
 
 ```astro
 ---
+// src/components/Custom.astro
 import type { Props } from '@astrojs/starlight/props';
 
 const { hasSidebar } = Astro.props;
@@ -41,7 +42,7 @@ Le sens d'écriture de la page.
 
 **Type :** `string`
 
-L’étiquette d’identification BCP-47 pour la langue de la page, par exemple `en`, `zh` ou `pt-BR`.
+L’étiquette d’identification BCP-47 pour la langue de la page, par exemple `en`, `zh-CN` ou `pt-BR`.
 
 #### `locale`
 
@@ -120,7 +121,7 @@ Table des matières de la page courante si celle-ci est activée.
 **Type :** `{ depth: number; slug: string; text: string }[]`
 
 Un tableau de toutes les en-têtes Markdown extraites de la page courante.
-Utilisez [`toc`](#toc) à la place si vous souhaitez construire une table des matières qui respecte les options de configuration de Starlight.
+Utilisez [`toc`](#toc) à la place si vous souhaitez construire un composant de table des matières qui respecte les options de configuration de Starlight.
 
 #### `lastUpdated`
 
@@ -341,6 +342,8 @@ L'implémentation par défaut affiche un large titre, une accroche et des liens 
 
 Composant affiché autour du contenu principal de chaque page.
 L'implémentation par défaut définit les styles de base à appliquer au contenu Markdown.
+
+Les styles de contenu Markdown sont également exposés dans `@astrojs/starlight/style/markdown.css` avec une portée limitée à la classe CSS `.sl-markdown-content`.
 
 ---
 
